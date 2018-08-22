@@ -7,6 +7,10 @@
 	"discoveryAPIHost": "https://developer.api.intuit.com/.well-known/openid_sandbox_configuration",
 	"c2qbScope": "com.intuit.quickbooks.accounting",
 	"siwiScope": "openid profile email phone address",
-	"getAppNowScope": "openid profile email phone address com.intuit.quickbooks.accounting"
-	
+	"getAppNowScope": "openid profile email phone address com.intuit.quickbooks.accounting",
+	"dbport": "your-port",
+	"dbhost": "localhost", 
+    "username": "your-username",
+    "dbname": "your-db-name",
+    "password": "your-password"	
 }
