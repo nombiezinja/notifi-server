@@ -5,16 +5,16 @@ import (
 	"fmt"
 	"strconv"
 
-	"bitbucket.org/nombiezinja/deepfrier/util"
 	_ "github.com/lib/pq"
 	"github.com/nombiezinja/notifi-server/config"
+	"github.com/nombiezinja/notifi-server/errors"
 )
 
 var DB *sql.DB
 
 func portnum() int {
 	port, err := strconv.Atoi(config.AppConfig.DbPort)
-	util.CheckErr(err)
+	errors.FailOnErr(err, "DbPort in config.json cannot be converted to an integer.")
 	return port
 }
 
@@ -30,10 +30,10 @@ func Connect() {
 	)
 
 	DB, err = sql.Open("postgres", dbstring)
-	util.CheckErr(err)
+	errors.FailOnErr(err, "Failed to open database connection.")
 
 	err = DB.Ping()
-	util.CheckErr(err)
+	errors.FailOnErr(err, "Failed to ping database.")
 
 	fmt.Println("Db connection established")
 }

@@ -20,8 +20,8 @@ func main() {
 	//register handler routes
 	http.HandleFunc("/test", handlers.TestHandler)
 	db.Connect()
+
 	//log and start server
 	log.Println("running server on ", config.AppConfig.Port)
 	log.Fatal(http.ListenAndServe(config.AppConfig.Port, nil))
-
 }
